@@ -47,7 +47,7 @@ public class Alloc implements IStatement {
         }
         else throw new ToyLangException("No variable with the given name is defined.");
 
-        return state;
+        return null;
     }
 
     @Override

@@ -46,7 +46,7 @@ public class CondStatement implements IStatement {
 
         }
         else throw new ToyLangException("Evaluated expression is not a logical one.");
-        return state;
+        return null;
     }
 
     @Override

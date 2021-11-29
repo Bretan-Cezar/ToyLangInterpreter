@@ -33,30 +33,6 @@ public class Controller {
                 .collect(Collectors.toList());
     }
 
-    /*
-    public void allStep() throws ToyLangException {
-
-        ProgramState program = repo.getCurrentProgram(); // repo is the controller field of type IRepository
-
-        repo.logProgramStateExecution();
-        System.out.println("\n" + program);
-
-        while (!program.getExeStack().isEmpty()) {
-
-            oneStep(program);
-            repo.logProgramStateExecution();
-
-            program.getHeap().setContent(program.safeGarbageCollector(
-                    program.getAddrFromSymTable(program.getSymTable().getContent().values()),
-                    program.getAddrFromHeap(program.getHeap().getContent().values()),
-                    program.getHeap().getContent()));
-
-            System.out.println("\n" + program);
-        }
-    }
-
-    */
-
     private List<Integer> getAddrFromAllSymTables(Collection<Collection<IValue>> symTables) {
 
         ArrayList<Integer> masterList = new ArrayList<>();
@@ -71,14 +47,6 @@ public class Controller {
 
 
         return masterList.stream().toList();
-
-        /*
-        return symTableValues.stream()
-                .filter(v -> v instanceof RefValue)
-                .map(v -> {RefValue v1 = (RefValue) v; return v1.getAddr();})
-                .collect(Collectors.toList());
-
-         */
     }
 
     private List<Integer> getAddrFromHeap(Collection<IValue> heapValues) {
@@ -140,7 +108,7 @@ public class Controller {
             throw new ToyLangException(e.getMessage());
         }
 
-        programsList.clear();
+        //programsList.clear();
         programsList.addAll(newProgramList);
 
         programsList.forEach(prg -> {

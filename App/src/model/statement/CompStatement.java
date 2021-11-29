@@ -29,7 +29,7 @@ public class CompStatement implements IStatement {
         stack.push(second);
         stack.push(first);
 
-        return state;
+        return null;
     }
 
     @Override

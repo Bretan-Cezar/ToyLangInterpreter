@@ -27,7 +27,7 @@ public class PrintStatement implements IStatement {
         System.out.println(value);
         state.getOut().append(value);
 
-        return state;
+        return null;
     }
 
     @Override

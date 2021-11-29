@@ -7,7 +7,7 @@ public class NoOpStatement implements IStatement {
 
     @Override
     public ProgramState execute(ProgramState state) throws ToyLangException {
-        return state;
+        return null;
     }
 
     @Override

@@ -211,6 +211,39 @@ public class Main {
 
         Controller controller8 = new Controller(repository8, heap8);
 
+        /*
+         *  Example9:
+         *  int v; Ref int a; v = 10; new(a,22); fork(wH(a,30); v = 32; print(v); print(rH(a))); print(v); print(rH(a))
+         */
+
+        IHeap heap9 = new Heap();
+
+        IStatement decl_refa = new VarDeclStatement("a", new RefType(new IntType()));
+        IStatement assign2_v = new AssignStatement("v", new ValueExpression(new IntValue(10)));
+        IStatement alloc1_a = new Alloc("a", new ValueExpression(new IntValue(22)));
+        IStatement write1_a = new WriteHeap("a", new ValueExpression(new IntValue(30)));
+        IStatement assign3_v = new AssignStatement("v", new ValueExpression(new IntValue(32)));
+        IStatement print_read_a = new PrintStatement(new ReadHeap(new VariableExpression("a")));
+
+        IStatement fork1 = new ForkStatement(new CompStatement(write1_a,
+                new CompStatement(assign3_v,
+                        new CompStatement(print3_v, print_read_a))));
+
+        IStatement ex9 = new CompStatement(decl_v,
+                new CompStatement(decl_refa,
+                        new CompStatement(assign2_v,
+                                new CompStatement(alloc1_a,
+                                        new CompStatement(fork1,
+                                                new CompStatement(print3_v, print_read_a))))));
+
+        ProgramState state9 = new ProgramState(new Stack<>(), new Dictionary<>(), new List<>(50), new Dictionary<>(), heap9, ex9);
+
+        IRepository repository9 = new Repository(50, "log9.txt");
+
+        repository9.addProgram(state9);
+
+        Controller controller9 = new Controller(repository9, heap9);
+
         TextMenu menu = new TextMenu();
 
         menu.addCommand(new ExitCommand("0","exit"));
@@ -222,6 +255,7 @@ public class Main {
         menu.addCommand(new RunExample("6", ex6.toString(), controller6));
         menu.addCommand(new RunExample("7", ex7.toString(), controller7));
         menu.addCommand(new RunExample("8", ex8.toString(), controller8));
+        menu.addCommand(new RunExample("9", ex9.toString(), controller9));
 
         menu.start();
     }

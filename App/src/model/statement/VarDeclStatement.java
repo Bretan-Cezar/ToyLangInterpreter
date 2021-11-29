@@ -41,7 +41,7 @@ public class VarDeclStatement implements IStatement {
         }
         else throw new ToyLangException("A variable with the same name is already declared.");
 
-        return state;
+        return null;
     }
 
     @Override

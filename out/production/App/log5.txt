@@ -1,0 +1,314 @@
+
+{
+    ProgramID = 1
+    ExeStack:
+    ( int a ; ( a = 3 ; ( int b ; ( b = 4 ; (IF (a > b) THEN (print(a)) ELSE (print(b))) ) ) ) )
+
+    SymTable:
+
+    Out:
+
+    FileTable:
+
+    Heap:
+}
+
+{
+    ProgramID = 1
+    ExeStack:
+    int a
+    ( a = 3 ; ( int b ; ( b = 4 ; (IF (a > b) THEN (print(a)) ELSE (print(b))) ) ) )
+
+    SymTable:
+
+    Out:
+
+    FileTable:
+
+    Heap:
+}
+
+{
+    ProgramID = 1
+    ExeStack:
+    int a
+    ( a = 3 ; ( int b ; ( b = 4 ; (IF (a > b) THEN (print(a)) ELSE (print(b))) ) ) )
+
+    SymTable:
+
+    Out:
+
+    FileTable:
+
+    Heap:
+}
+
+{
+    ProgramID = 1
+    ExeStack:
+    ( a = 3 ; ( int b ; ( b = 4 ; (IF (a > b) THEN (print(a)) ELSE (print(b))) ) ) )
+
+    SymTable:
+    a -> 0
+
+    Out:
+
+    FileTable:
+
+    Heap:
+}
+
+{
+    ProgramID = 1
+    ExeStack:
+    ( a = 3 ; ( int b ; ( b = 4 ; (IF (a > b) THEN (print(a)) ELSE (print(b))) ) ) )
+
+    SymTable:
+    a -> 0
+
+    Out:
+
+    FileTable:
+
+    Heap:
+}
+
+{
+    ProgramID = 1
+    ExeStack:
+    a = 3
+    ( int b ; ( b = 4 ; (IF (a > b) THEN (print(a)) ELSE (print(b))) ) )
+
+    SymTable:
+    a -> 0
+
+    Out:
+
+    FileTable:
+
+    Heap:
+}
+
+{
+    ProgramID = 1
+    ExeStack:
+    a = 3
+    ( int b ; ( b = 4 ; (IF (a > b) THEN (print(a)) ELSE (print(b))) ) )
+
+    SymTable:
+    a -> 0
+
+    Out:
+
+    FileTable:
+
+    Heap:
+}
+
+{
+    ProgramID = 1
+    ExeStack:
+    ( int b ; ( b = 4 ; (IF (a > b) THEN (print(a)) ELSE (print(b))) ) )
+
+    SymTable:
+    a -> 3
+
+    Out:
+
+    FileTable:
+
+    Heap:
+}
+
+{
+    ProgramID = 1
+    ExeStack:
+    ( int b ; ( b = 4 ; (IF (a > b) THEN (print(a)) ELSE (print(b))) ) )
+
+    SymTable:
+    a -> 3
+
+    Out:
+
+    FileTable:
+
+    Heap:
+}
+
+{
+    ProgramID = 1
+    ExeStack:
+    int b
+    ( b = 4 ; (IF (a > b) THEN (print(a)) ELSE (print(b))) )
+
+    SymTable:
+    a -> 3
+
+    Out:
+
+    FileTable:
+
+    Heap:
+}
+
+{
+    ProgramID = 1
+    ExeStack:
+    int b
+    ( b = 4 ; (IF (a > b) THEN (print(a)) ELSE (print(b))) )
+
+    SymTable:
+    a -> 3
+
+    Out:
+
+    FileTable:
+
+    Heap:
+}
+
+{
+    ProgramID = 1
+    ExeStack:
+    ( b = 4 ; (IF (a > b) THEN (print(a)) ELSE (print(b))) )
+
+    SymTable:
+    a -> 3
+    b -> 0
+
+    Out:
+
+    FileTable:
+
+    Heap:
+}
+
+{
+    ProgramID = 1
+    ExeStack:
+    ( b = 4 ; (IF (a > b) THEN (print(a)) ELSE (print(b))) )
+
+    SymTable:
+    a -> 3
+    b -> 0
+
+    Out:
+
+    FileTable:
+
+    Heap:
+}
+
+{
+    ProgramID = 1
+    ExeStack:
+    b = 4
+    (IF (a > b) THEN (print(a)) ELSE (print(b)))
+
+    SymTable:
+    a -> 3
+    b -> 0
+
+    Out:
+
+    FileTable:
+
+    Heap:
+}
+
+{
+    ProgramID = 1
+    ExeStack:
+    b = 4
+    (IF (a > b) THEN (print(a)) ELSE (print(b)))
+
+    SymTable:
+    a -> 3
+    b -> 0
+
+    Out:
+
+    FileTable:
+
+    Heap:
+}
+
+{
+    ProgramID = 1
+    ExeStack:
+    (IF (a > b) THEN (print(a)) ELSE (print(b)))
+
+    SymTable:
+    a -> 3
+    b -> 4
+
+    Out:
+
+    FileTable:
+
+    Heap:
+}
+
+{
+    ProgramID = 1
+    ExeStack:
+    (IF (a > b) THEN (print(a)) ELSE (print(b)))
+
+    SymTable:
+    a -> 3
+    b -> 4
+
+    Out:
+
+    FileTable:
+
+    Heap:
+}
+
+{
+    ProgramID = 1
+    ExeStack:
+    print(b)
+
+    SymTable:
+    a -> 3
+    b -> 4
+
+    Out:
+
+    FileTable:
+
+    Heap:
+}
+
+{
+    ProgramID = 1
+    ExeStack:
+    print(b)
+
+    SymTable:
+    a -> 3
+    b -> 4
+
+    Out:
+
+    FileTable:
+
+    Heap:
+}
+
+{
+    ProgramID = 1
+    ExeStack:
+
+    SymTable:
+    a -> 3
+    b -> 4
+
+    Out:
+    4
+
+    FileTable:
+
+    Heap:
+}

@@ -22,12 +22,9 @@ public class ForkStatement implements IStatement {
     @Override
     public ProgramState execute(ProgramState state) throws ToyLangException {
 
-        IStack<IStatement> newStack = new Stack<>();
-        newStack.push(statement);
-
         IDictionary<String, IValue> newSymTable = clone(state.getSymTable());
 
-        return new ProgramState(newStack, newSymTable, state.getOut(), state.getFileTable(), state.getHeap(), state.getOriginalProgram());
+        return new ProgramState(new Stack<>(), newSymTable, state.getOut(), state.getFileTable(), state.getHeap(), statement);
     }
 
 
@@ -45,5 +42,11 @@ public class ForkStatement implements IStatement {
     public IStatement deepCopy() {
 
         return new ForkStatement(statement.deepCopy());
+    }
+
+    @Override
+    public String toString() {
+
+        return "fork( " + statement.toString() + " )";
     }
 }

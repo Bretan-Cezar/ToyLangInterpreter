@@ -52,7 +52,7 @@ public class WriteHeap implements IStatement {
         }
         else throw new ToyLangException("No variable with the given name has been defined.");
 
-        return state;
+        return null;
     }
 
     @Override

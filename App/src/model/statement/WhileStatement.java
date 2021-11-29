@@ -36,7 +36,7 @@ public class WhileStatement implements IStatement {
         }
         else throw new ToyLangException("Expression does not evaluate to a BoolValue.");
 
-        return state;
+        return null;
     }
 
     @Override

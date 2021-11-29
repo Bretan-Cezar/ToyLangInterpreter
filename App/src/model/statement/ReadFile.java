@@ -74,7 +74,7 @@ public class ReadFile implements IStatement {
         }
         else throw new ToyLangException("The expression is not of StringType.");
 
-        return state;
+        return null;
     }
 
     @Override
