@@ -4,11 +4,10 @@ import model.ProgramState;
 import model.dictionary.Dictionary;
 import model.dictionary.IDictionary;
 import model.exceptions.ToyLangException;
-import model.stack.IStack;
 import model.stack.Stack;
+import model.type.IType;
 import model.value.IValue;
 
-import java.util.HashMap;
 
 public class ForkStatement implements IStatement {
 
@@ -27,6 +26,11 @@ public class ForkStatement implements IStatement {
         return new ProgramState(new Stack<>(), newSymTable, state.getOut(), state.getFileTable(), state.getHeap(), statement);
     }
 
+    @Override
+    public IDictionary<String, IType> typecheck(IDictionary<String, IType> typeEnv) throws ToyLangException {
+        return null;
+    }
+
 
     private IDictionary<String, IValue> clone(IDictionary<String, IValue> symTable) {
 
@@ -34,6 +38,16 @@ public class ForkStatement implements IStatement {
 
         symTable.getContent()
                 .forEach((key, value) -> newDictionary.modify(String.valueOf(key), value.deepCopy()));
+
+        return newDictionary;
+    }
+
+    private IDictionary<String, IType> clone_env(IDictionary<String, IType> typeEnv) {
+
+        IDictionary<String, IType> newDictionary = new Dictionary<>();
+
+        typeEnv.getContent()
+                .forEach((id, type) -> newDictionary.modify(String.valueOf(id), type.deepCopy()));
 
         return newDictionary;
     }

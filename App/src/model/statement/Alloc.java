@@ -1,6 +1,7 @@
 package model.statement;
 
 import model.ProgramState;
+import model.dictionary.IDictionary;
 import model.exceptions.ToyLangException;
 import model.expression.IExpression;
 import model.type.IType;
@@ -48,6 +49,22 @@ public class Alloc implements IStatement {
         else throw new ToyLangException("No variable with the given name is defined.");
 
         return null;
+    }
+
+    @Override
+    public IDictionary<String, IType> typecheck(IDictionary<String, IType> typeEnv) throws ToyLangException {
+
+        if (typeEnv.get(var_name) instanceof RefType varType) {
+
+            IType expType = exp.typecheck(typeEnv);
+
+            if (varType.getInner().equals(expType)) {
+
+                return typeEnv;
+            }
+            else throw new ToyLangException("Mismatch in inner variable type (" + varType.getInner() + ") and expression (" + expType + ") types.");
+        }
+        else throw new ToyLangException("Variable is not of RefType.");
     }
 
     @Override

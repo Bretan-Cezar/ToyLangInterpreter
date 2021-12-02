@@ -1,6 +1,7 @@
 package model.statement;
 
 import model.*;
+import model.dictionary.IDictionary;
 import model.exceptions.ToyLangException;
 import model.type.*;
 import model.value.StringValue;
@@ -42,6 +43,17 @@ public class VarDeclStatement implements IStatement {
         else throw new ToyLangException("A variable with the same name is already declared.");
 
         return null;
+    }
+
+    @Override
+    public IDictionary<String, IType> typecheck(IDictionary<String, IType> typeEnv) throws ToyLangException {
+
+        //if (!typeEnv.isKeyDefined(name)) {
+
+            typeEnv.modify(name, type);
+            return typeEnv;
+        //}
+        //else throw new ToyLangException("A variable with the same name is already declared.");
     }
 
     @Override

@@ -1,8 +1,10 @@
 package model.statement;
 
 import model.ProgramState;
+import model.dictionary.IDictionary;
 import model.exceptions.ToyLangException;
 import model.stack.IStack;
+import model.type.IType;
 
 public class CompStatement implements IStatement {
 
@@ -30,6 +32,12 @@ public class CompStatement implements IStatement {
         stack.push(first);
 
         return null;
+    }
+
+    @Override
+    public IDictionary<String, IType> typecheck(IDictionary<String, IType> typeEnv) throws ToyLangException {
+
+        return second.typecheck(first.typecheck(typeEnv));
     }
 
     @Override

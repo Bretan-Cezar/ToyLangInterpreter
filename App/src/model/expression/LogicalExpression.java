@@ -4,6 +4,8 @@ import model.dictionary.IDictionary;
 import model.exceptions.ToyLangException;
 import model.heap.IHeap;
 import model.type.BoolType;
+import model.type.IType;
+import model.type.IntType;
 import model.value.BoolValue;
 import model.value.IValue;
 
@@ -55,6 +57,25 @@ public class LogicalExpression implements IExpression {
             else throw new ToyLangException("Second operand is not a boolean");
         }
         else throw new ToyLangException("First operand is not a boolean");
+    }
+
+    @Override
+    public IType typecheck(IDictionary<String, IType> typeEnv) throws ToyLangException {
+
+        IType t1, t2;
+
+        t1 = exp1.typecheck(typeEnv);
+        t2 = exp2.typecheck(typeEnv);
+
+        if (t1.equals(new BoolType())) {
+
+            if (t2.equals(new BoolType())) {
+
+                return new BoolType();
+            }
+            else throw new ToyLangException("Second operand is not a boolean, got " + t2);
+        }
+        else throw new ToyLangException("First operand is not a boolean, got " + t1);
     }
 
     @Override

@@ -3,6 +3,8 @@ package model.expression;
 import model.dictionary.IDictionary;
 import model.exceptions.ToyLangException;
 import model.heap.IHeap;
+import model.type.BoolType;
+import model.type.IType;
 import model.type.IntType;
 import model.value.BoolValue;
 import model.value.IValue;
@@ -64,6 +66,23 @@ public class RelationalExpression implements IExpression {
             else throw new ToyLangException("Second operand must be an (expression that evaluates to) int.");
         }
         else throw new ToyLangException("First operand must be an (expression that evaluates to) int.");
+    }
+
+    @Override
+    public IType typecheck(IDictionary<String, IType> typeEnv) throws ToyLangException {
+
+        IType t1 = exp1.typecheck(typeEnv);
+        IType t2 = exp2.typecheck(typeEnv);
+
+        if (t1.equals(new IntType())) {
+
+            if (t2.equals(new IntType())) {
+
+                return new BoolType();
+            }
+            else throw new ToyLangException("Second operand is not an int, got " + t2);
+        }
+        else throw new ToyLangException("First operand is not an int, got " + t1);
     }
 
     @Override

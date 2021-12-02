@@ -2,6 +2,7 @@ package model.expression;
 
 import model.dictionary.IDictionary;
 import model.heap.IHeap;
+import model.type.IType;
 import model.value.IValue;
 import model.exceptions.ToyLangException;
 
@@ -21,6 +22,12 @@ public class VariableExpression implements IExpression {
     @Override
     public IValue evaluate(IDictionary<String, IValue> table, IHeap heap) throws ToyLangException {
         return table.get(id);
+    }
+
+    @Override
+    public IType typecheck(IDictionary<String, IType> typeEnv) throws ToyLangException {
+
+        return typeEnv.get(id);
     }
 
     @Override

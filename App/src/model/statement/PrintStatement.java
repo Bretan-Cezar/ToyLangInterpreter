@@ -1,5 +1,7 @@
 package model.statement;
 
+import model.dictionary.IDictionary;
+import model.type.IType;
 import model.value.IValue;
 import model.ProgramState;
 import model.exceptions.ToyLangException;
@@ -28,6 +30,13 @@ public class PrintStatement implements IStatement {
         state.getOut().append(value);
 
         return null;
+    }
+
+    @Override
+    public IDictionary<String, IType> typecheck(IDictionary<String, IType> typeEnv) throws ToyLangException {
+
+        exp.typecheck(typeEnv);
+        return typeEnv;
     }
 
     @Override

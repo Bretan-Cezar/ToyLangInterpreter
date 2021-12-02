@@ -41,12 +41,24 @@ public class AssignStatement implements IStatement {
             if (val.getType().equals(typeId))
                 table.modify(id, val);
 
-            else throw new ToyLangException("declared type of variable " + id + " and type of the assigned expression do not match");
+            else throw new ToyLangException("Declared type of variable " + id + " and type of the assigned expression do not match");
 
         }
-        else throw new ToyLangException("the used variable " + id + " was not declared before");
+        else throw new ToyLangException("The used variable " + id + " was not declared before");
 
         return null;
+    }
+
+    @Override
+    public IDictionary<String, IType> typecheck(IDictionary<String, IType> typeEnv) throws ToyLangException {
+
+        IType t = exp.typecheck(typeEnv);
+
+        if (typeEnv.get(id).equals(t)) {
+
+            return typeEnv;
+        }
+        else throw new ToyLangException("Declared type of variable " + id + " and type of the assigned expression do not match");
     }
 
     @Override

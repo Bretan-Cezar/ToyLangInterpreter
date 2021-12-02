@@ -3,6 +3,7 @@ package model.expression;
 import model.dictionary.IDictionary;
 import model.exceptions.ToyLangException;
 import model.heap.IHeap;
+import model.type.IType;
 import model.type.IntType;
 import model.value.IValue;
 import model.value.IntValue;
@@ -65,6 +66,25 @@ public class ArithmeticExpression implements IExpression {
         }
         else throw new ToyLangException("First operand is not an integer");
 
+    }
+
+    @Override
+    public IType typecheck(IDictionary<String, IType> typeEnv) throws ToyLangException {
+
+        IType t1, t2;
+
+        t1 = exp1.typecheck(typeEnv);
+        t2 = exp2.typecheck(typeEnv);
+
+        if (t1.equals(new IntType())) {
+
+            if (t2.equals(new IntType())) {
+
+                return new IntType();
+            }
+            else throw new ToyLangException("Second operand is not an integer, got " + t2);
+        }
+        else throw new ToyLangException("First operand is not an integer, got " + t1);
     }
 
     @Override

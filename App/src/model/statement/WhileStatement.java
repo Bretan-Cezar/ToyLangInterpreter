@@ -1,9 +1,12 @@
 package model.statement;
 
 import model.ProgramState;
+import model.dictionary.Dictionary;
+import model.dictionary.IDictionary;
 import model.exceptions.ToyLangException;
 import model.expression.IExpression;
 import model.type.BoolType;
+import model.type.IType;
 import model.value.BoolValue;
 import model.value.IValue;
 
@@ -37,6 +40,22 @@ public class WhileStatement implements IStatement {
         else throw new ToyLangException("Expression does not evaluate to a BoolValue.");
 
         return null;
+    }
+
+    @Override
+    public IDictionary<String, IType> typecheck(IDictionary<String, IType> typeEnv) throws ToyLangException {
+
+
+    }
+
+    private IDictionary<String, IType> clone(IDictionary<String, IType> typeEnv) {
+
+        IDictionary<String, IType> newDictionary = new Dictionary<>();
+
+        typeEnv.getContent()
+                .forEach((id, type) -> newDictionary.modify(String.valueOf(id), type.deepCopy()));
+
+        return newDictionary;
     }
 
     @Override
