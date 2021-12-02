@@ -107,8 +107,7 @@ public class Controller {
 
             throw new ToyLangException(e.getMessage());
         }
-
-        //programsList.clear();
+        
         programsList.addAll(newProgramList);
 
         programsList.forEach(prg -> {

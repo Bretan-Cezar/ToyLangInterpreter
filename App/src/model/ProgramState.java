@@ -19,7 +19,8 @@ public class ProgramState {
     private IStatement originalProgram;
     private IDictionary<StringValue, BufferedReader> fileTable;
     private IHeap heap;
-    private static int id;
+    private int programID;
+    private static int global_max_id = 0;
 
     public IStack<IStatement> getExeStack() {
         return exeStack;
@@ -45,9 +46,15 @@ public class ProgramState {
         return heap;
     }
 
+    public static synchronized int getNewID() {
+
+        global_max_id += 1;
+        return global_max_id;
+    }
+
     public ProgramState(IStack<IStatement> stack, IDictionary<String, IValue> s_table, IList<IValue> list, IDictionary<StringValue, BufferedReader> f_table, IHeap hp, IStatement program) {
 
-        id = 1;
+        programID = getNewID();
         exeStack = stack;
         symTable = s_table;
         out = list;
@@ -57,15 +64,12 @@ public class ProgramState {
         exeStack.push(program);
     }
 
-    public static synchronized void manageID() {
 
-
-    }
 
     @Override
     public String toString() {
 
-        return "ProgramState {\nProgramID = " + id + "\nStack: " + exeStack.toString() + "\nTable: " +
+        return "ProgramState {\nProgramID = " + programID + "\nStack: " + exeStack.toString() + "\nTable: " +
                 symTable.toString() + "\nOut: "+ out.toString() + "\nFileTable: " + fileTable.toString() + "\nHeap: " + heap.toString() + "\n}";
     }
 
@@ -73,7 +77,7 @@ public class ProgramState {
 
         StringBuilder str = new StringBuilder();
 
-        str.append("{\n    ProgramID = " + id);
+        str.append("{\n    ProgramID = " + programID);
 
         str.append("\n    ExeStack:\n");
 

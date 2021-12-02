@@ -1,6 +1,6 @@
 
 {
-    ProgramID = 1
+    ProgramID = 8
     ExeStack:
     ( Ref(int) v ; ( Alloc(v, 20) ; ( Ref(Ref(int)) a ; ( Alloc(a, v) ; ( Alloc(v, 30) ; print(ReadHeap(ReadHeap(a))) ) ) ) ) )
 
@@ -14,7 +14,7 @@
 }
 
 {
-    ProgramID = 1
+    ProgramID = 8
     ExeStack:
     Ref(int) v
     ( Alloc(v, 20) ; ( Ref(Ref(int)) a ; ( Alloc(a, v) ; ( Alloc(v, 30) ; print(ReadHeap(ReadHeap(a))) ) ) ) )
@@ -29,7 +29,7 @@
 }
 
 {
-    ProgramID = 1
+    ProgramID = 8
     ExeStack:
     Ref(int) v
     ( Alloc(v, 20) ; ( Ref(Ref(int)) a ; ( Alloc(a, v) ; ( Alloc(v, 30) ; print(ReadHeap(ReadHeap(a))) ) ) ) )
@@ -44,7 +44,7 @@
 }
 
 {
-    ProgramID = 1
+    ProgramID = 8
     ExeStack:
     ( Alloc(v, 20) ; ( Ref(Ref(int)) a ; ( Alloc(a, v) ; ( Alloc(v, 30) ; print(ReadHeap(ReadHeap(a))) ) ) ) )
 
@@ -59,7 +59,7 @@
 }
 
 {
-    ProgramID = 1
+    ProgramID = 8
     ExeStack:
     ( Alloc(v, 20) ; ( Ref(Ref(int)) a ; ( Alloc(a, v) ; ( Alloc(v, 30) ; print(ReadHeap(ReadHeap(a))) ) ) ) )
 
@@ -74,7 +74,7 @@
 }
 
 {
-    ProgramID = 1
+    ProgramID = 8
     ExeStack:
     Alloc(v, 20)
     ( Ref(Ref(int)) a ; ( Alloc(a, v) ; ( Alloc(v, 30) ; print(ReadHeap(ReadHeap(a))) ) ) )
@@ -90,7 +90,7 @@
 }
 
 {
-    ProgramID = 1
+    ProgramID = 8
     ExeStack:
     Alloc(v, 20)
     ( Ref(Ref(int)) a ; ( Alloc(a, v) ; ( Alloc(v, 30) ; print(ReadHeap(ReadHeap(a))) ) ) )
@@ -106,7 +106,7 @@
 }
 
 {
-    ProgramID = 1
+    ProgramID = 8
     ExeStack:
     ( Ref(Ref(int)) a ; ( Alloc(a, v) ; ( Alloc(v, 30) ; print(ReadHeap(ReadHeap(a))) ) ) )
 
@@ -122,7 +122,7 @@
 }
 
 {
-    ProgramID = 1
+    ProgramID = 8
     ExeStack:
     ( Ref(Ref(int)) a ; ( Alloc(a, v) ; ( Alloc(v, 30) ; print(ReadHeap(ReadHeap(a))) ) ) )
 
@@ -138,7 +138,7 @@
 }
 
 {
-    ProgramID = 1
+    ProgramID = 8
     ExeStack:
     Ref(Ref(int)) a
     ( Alloc(a, v) ; ( Alloc(v, 30) ; print(ReadHeap(ReadHeap(a))) ) )
@@ -155,7 +155,7 @@
 }
 
 {
-    ProgramID = 1
+    ProgramID = 8
     ExeStack:
     Ref(Ref(int)) a
     ( Alloc(a, v) ; ( Alloc(v, 30) ; print(ReadHeap(ReadHeap(a))) ) )
@@ -172,7 +172,7 @@
 }
 
 {
-    ProgramID = 1
+    ProgramID = 8
     ExeStack:
     ( Alloc(a, v) ; ( Alloc(v, 30) ; print(ReadHeap(ReadHeap(a))) ) )
 
@@ -189,7 +189,7 @@
 }
 
 {
-    ProgramID = 1
+    ProgramID = 8
     ExeStack:
     ( Alloc(a, v) ; ( Alloc(v, 30) ; print(ReadHeap(ReadHeap(a))) ) )
 
@@ -206,7 +206,7 @@
 }
 
 {
-    ProgramID = 1
+    ProgramID = 8
     ExeStack:
     Alloc(a, v)
     ( Alloc(v, 30) ; print(ReadHeap(ReadHeap(a))) )
@@ -224,7 +224,7 @@
 }
 
 {
-    ProgramID = 1
+    ProgramID = 8
     ExeStack:
     Alloc(a, v)
     ( Alloc(v, 30) ; print(ReadHeap(ReadHeap(a))) )
@@ -242,7 +242,7 @@
 }
 
 {
-    ProgramID = 1
+    ProgramID = 8
     ExeStack:
     ( Alloc(v, 30) ; print(ReadHeap(ReadHeap(a))) )
 
@@ -260,7 +260,7 @@
 }
 
 {
-    ProgramID = 1
+    ProgramID = 8
     ExeStack:
     ( Alloc(v, 30) ; print(ReadHeap(ReadHeap(a))) )
 
@@ -278,7 +278,7 @@
 }
 
 {
-    ProgramID = 1
+    ProgramID = 8
     ExeStack:
     Alloc(v, 30)
     print(ReadHeap(ReadHeap(a)))
@@ -297,7 +297,7 @@
 }
 
 {
-    ProgramID = 1
+    ProgramID = 8
     ExeStack:
     Alloc(v, 30)
     print(ReadHeap(ReadHeap(a)))
@@ -316,7 +316,7 @@
 }
 
 {
-    ProgramID = 1
+    ProgramID = 8
     ExeStack:
     print(ReadHeap(ReadHeap(a)))
 
@@ -335,7 +335,7 @@
 }
 
 {
-    ProgramID = 1
+    ProgramID = 8
     ExeStack:
     print(ReadHeap(ReadHeap(a)))
 
@@ -354,7 +354,7 @@
 }
 
 {
-    ProgramID = 1
+    ProgramID = 8
     ExeStack:
 
     SymTable:
