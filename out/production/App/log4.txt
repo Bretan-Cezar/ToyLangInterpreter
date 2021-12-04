@@ -1,6 +1,6 @@
 
 {
-    ProgramID = 1
+    ProgramID = 4
     ExeStack:
     ( OpenRFile("test.txt") ; ( int n ; ( ReadFile("test.txt", n) ; ( print(n) ; ( ReadFile("test.txt", n) ; ( print(n) ; CloseRFile("test.txt") ) ) ) ) ) )
 
@@ -14,7 +14,7 @@
 }
 
 {
-    ProgramID = 1
+    ProgramID = 4
     ExeStack:
     OpenRFile("test.txt")
     ( int n ; ( ReadFile("test.txt", n) ; ( print(n) ; ( ReadFile("test.txt", n) ; ( print(n) ; CloseRFile("test.txt") ) ) ) ) )
@@ -29,7 +29,7 @@
 }
 
 {
-    ProgramID = 1
+    ProgramID = 4
     ExeStack:
     OpenRFile("test.txt")
     ( int n ; ( ReadFile("test.txt", n) ; ( print(n) ; ( ReadFile("test.txt", n) ; ( print(n) ; CloseRFile("test.txt") ) ) ) ) )
@@ -44,7 +44,7 @@
 }
 
 {
-    ProgramID = 1
+    ProgramID = 4
     ExeStack:
     ( int n ; ( ReadFile("test.txt", n) ; ( print(n) ; ( ReadFile("test.txt", n) ; ( print(n) ; CloseRFile("test.txt") ) ) ) ) )
 
@@ -53,13 +53,13 @@
     Out:
 
     FileTable:
-    "test.txt" -> java.io.BufferedReader@51521cc1
+    "test.txt" -> java.io.BufferedReader@61e4705b
 
     Heap:
 }
 
 {
-    ProgramID = 1
+    ProgramID = 4
     ExeStack:
     ( int n ; ( ReadFile("test.txt", n) ; ( print(n) ; ( ReadFile("test.txt", n) ; ( print(n) ; CloseRFile("test.txt") ) ) ) ) )
 
@@ -68,13 +68,13 @@
     Out:
 
     FileTable:
-    "test.txt" -> java.io.BufferedReader@51521cc1
+    "test.txt" -> java.io.BufferedReader@61e4705b
 
     Heap:
 }
 
 {
-    ProgramID = 1
+    ProgramID = 4
     ExeStack:
     int n
     ( ReadFile("test.txt", n) ; ( print(n) ; ( ReadFile("test.txt", n) ; ( print(n) ; CloseRFile("test.txt") ) ) ) )
@@ -84,13 +84,13 @@
     Out:
 
     FileTable:
-    "test.txt" -> java.io.BufferedReader@51521cc1
+    "test.txt" -> java.io.BufferedReader@61e4705b
 
     Heap:
 }
 
 {
-    ProgramID = 1
+    ProgramID = 4
     ExeStack:
     int n
     ( ReadFile("test.txt", n) ; ( print(n) ; ( ReadFile("test.txt", n) ; ( print(n) ; CloseRFile("test.txt") ) ) ) )
@@ -100,13 +100,13 @@
     Out:
 
     FileTable:
-    "test.txt" -> java.io.BufferedReader@51521cc1
+    "test.txt" -> java.io.BufferedReader@61e4705b
 
     Heap:
 }
 
 {
-    ProgramID = 1
+    ProgramID = 4
     ExeStack:
     ( ReadFile("test.txt", n) ; ( print(n) ; ( ReadFile("test.txt", n) ; ( print(n) ; CloseRFile("test.txt") ) ) ) )
 
@@ -116,13 +116,13 @@
     Out:
 
     FileTable:
-    "test.txt" -> java.io.BufferedReader@51521cc1
+    "test.txt" -> java.io.BufferedReader@61e4705b
 
     Heap:
 }
 
 {
-    ProgramID = 1
+    ProgramID = 4
     ExeStack:
     ( ReadFile("test.txt", n) ; ( print(n) ; ( ReadFile("test.txt", n) ; ( print(n) ; CloseRFile("test.txt") ) ) ) )
 
@@ -132,13 +132,13 @@
     Out:
 
     FileTable:
-    "test.txt" -> java.io.BufferedReader@51521cc1
+    "test.txt" -> java.io.BufferedReader@61e4705b
 
     Heap:
 }
 
 {
-    ProgramID = 1
+    ProgramID = 4
     ExeStack:
     ReadFile("test.txt", n)
     ( print(n) ; ( ReadFile("test.txt", n) ; ( print(n) ; CloseRFile("test.txt") ) ) )
@@ -149,13 +149,13 @@
     Out:
 
     FileTable:
-    "test.txt" -> java.io.BufferedReader@51521cc1
+    "test.txt" -> java.io.BufferedReader@61e4705b
 
     Heap:
 }
 
 {
-    ProgramID = 1
+    ProgramID = 4
     ExeStack:
     ReadFile("test.txt", n)
     ( print(n) ; ( ReadFile("test.txt", n) ; ( print(n) ; CloseRFile("test.txt") ) ) )
@@ -166,13 +166,13 @@
     Out:
 
     FileTable:
-    "test.txt" -> java.io.BufferedReader@51521cc1
+    "test.txt" -> java.io.BufferedReader@61e4705b
 
     Heap:
 }
 
 {
-    ProgramID = 1
+    ProgramID = 4
     ExeStack:
     ( print(n) ; ( ReadFile("test.txt", n) ; ( print(n) ; CloseRFile("test.txt") ) ) )
 
@@ -182,13 +182,13 @@
     Out:
 
     FileTable:
-    "test.txt" -> java.io.BufferedReader@51521cc1
+    "test.txt" -> java.io.BufferedReader@61e4705b
 
     Heap:
 }
 
 {
-    ProgramID = 1
+    ProgramID = 4
     ExeStack:
     ( print(n) ; ( ReadFile("test.txt", n) ; ( print(n) ; CloseRFile("test.txt") ) ) )
 
@@ -198,13 +198,13 @@
     Out:
 
     FileTable:
-    "test.txt" -> java.io.BufferedReader@51521cc1
+    "test.txt" -> java.io.BufferedReader@61e4705b
 
     Heap:
 }
 
 {
-    ProgramID = 1
+    ProgramID = 4
     ExeStack:
     print(n)
     ( ReadFile("test.txt", n) ; ( print(n) ; CloseRFile("test.txt") ) )
@@ -215,13 +215,13 @@
     Out:
 
     FileTable:
-    "test.txt" -> java.io.BufferedReader@51521cc1
+    "test.txt" -> java.io.BufferedReader@61e4705b
 
     Heap:
 }
 
 {
-    ProgramID = 1
+    ProgramID = 4
     ExeStack:
     print(n)
     ( ReadFile("test.txt", n) ; ( print(n) ; CloseRFile("test.txt") ) )
@@ -232,13 +232,13 @@
     Out:
 
     FileTable:
-    "test.txt" -> java.io.BufferedReader@51521cc1
+    "test.txt" -> java.io.BufferedReader@61e4705b
 
     Heap:
 }
 
 {
-    ProgramID = 1
+    ProgramID = 4
     ExeStack:
     ( ReadFile("test.txt", n) ; ( print(n) ; CloseRFile("test.txt") ) )
 
@@ -249,13 +249,13 @@
     15
 
     FileTable:
-    "test.txt" -> java.io.BufferedReader@51521cc1
+    "test.txt" -> java.io.BufferedReader@61e4705b
 
     Heap:
 }
 
 {
-    ProgramID = 1
+    ProgramID = 4
     ExeStack:
     ( ReadFile("test.txt", n) ; ( print(n) ; CloseRFile("test.txt") ) )
 
@@ -266,13 +266,13 @@
     15
 
     FileTable:
-    "test.txt" -> java.io.BufferedReader@51521cc1
+    "test.txt" -> java.io.BufferedReader@61e4705b
 
     Heap:
 }
 
 {
-    ProgramID = 1
+    ProgramID = 4
     ExeStack:
     ReadFile("test.txt", n)
     ( print(n) ; CloseRFile("test.txt") )
@@ -284,13 +284,13 @@
     15
 
     FileTable:
-    "test.txt" -> java.io.BufferedReader@51521cc1
+    "test.txt" -> java.io.BufferedReader@61e4705b
 
     Heap:
 }
 
 {
-    ProgramID = 1
+    ProgramID = 4
     ExeStack:
     ReadFile("test.txt", n)
     ( print(n) ; CloseRFile("test.txt") )
@@ -302,13 +302,13 @@
     15
 
     FileTable:
-    "test.txt" -> java.io.BufferedReader@51521cc1
+    "test.txt" -> java.io.BufferedReader@61e4705b
 
     Heap:
 }
 
 {
-    ProgramID = 1
+    ProgramID = 4
     ExeStack:
     ( print(n) ; CloseRFile("test.txt") )
 
@@ -319,13 +319,13 @@
     15
 
     FileTable:
-    "test.txt" -> java.io.BufferedReader@51521cc1
+    "test.txt" -> java.io.BufferedReader@61e4705b
 
     Heap:
 }
 
 {
-    ProgramID = 1
+    ProgramID = 4
     ExeStack:
     ( print(n) ; CloseRFile("test.txt") )
 
@@ -336,13 +336,13 @@
     15
 
     FileTable:
-    "test.txt" -> java.io.BufferedReader@51521cc1
+    "test.txt" -> java.io.BufferedReader@61e4705b
 
     Heap:
 }
 
 {
-    ProgramID = 1
+    ProgramID = 4
     ExeStack:
     print(n)
     CloseRFile("test.txt")
@@ -354,13 +354,13 @@
     15
 
     FileTable:
-    "test.txt" -> java.io.BufferedReader@51521cc1
+    "test.txt" -> java.io.BufferedReader@61e4705b
 
     Heap:
 }
 
 {
-    ProgramID = 1
+    ProgramID = 4
     ExeStack:
     print(n)
     CloseRFile("test.txt")
@@ -372,13 +372,13 @@
     15
 
     FileTable:
-    "test.txt" -> java.io.BufferedReader@51521cc1
+    "test.txt" -> java.io.BufferedReader@61e4705b
 
     Heap:
 }
 
 {
-    ProgramID = 1
+    ProgramID = 4
     ExeStack:
     CloseRFile("test.txt")
 
@@ -390,13 +390,13 @@
     10
 
     FileTable:
-    "test.txt" -> java.io.BufferedReader@51521cc1
+    "test.txt" -> java.io.BufferedReader@61e4705b
 
     Heap:
 }
 
 {
-    ProgramID = 1
+    ProgramID = 4
     ExeStack:
     CloseRFile("test.txt")
 
@@ -408,13 +408,443 @@
     10
 
     FileTable:
-    "test.txt" -> java.io.BufferedReader@51521cc1
+    "test.txt" -> java.io.BufferedReader@61e4705b
 
     Heap:
 }
 
 {
-    ProgramID = 1
+    ProgramID = 4
+    ExeStack:
+
+    SymTable:
+    n -> 10
+
+    Out:
+    15
+    10
+
+    FileTable:
+
+    Heap:
+}
+
+{
+    ProgramID = 4
+    ExeStack:
+    ( OpenRFile("test.txt") ; ( int n ; ( ReadFile("test.txt", n) ; ( print(n) ; ( ReadFile("test.txt", n) ; ( print(n) ; CloseRFile("test.txt") ) ) ) ) ) )
+
+    SymTable:
+
+    Out:
+
+    FileTable:
+
+    Heap:
+}
+
+{
+    ProgramID = 4
+    ExeStack:
+    OpenRFile("test.txt")
+    ( int n ; ( ReadFile("test.txt", n) ; ( print(n) ; ( ReadFile("test.txt", n) ; ( print(n) ; CloseRFile("test.txt") ) ) ) ) )
+
+    SymTable:
+
+    Out:
+
+    FileTable:
+
+    Heap:
+}
+
+{
+    ProgramID = 4
+    ExeStack:
+    OpenRFile("test.txt")
+    ( int n ; ( ReadFile("test.txt", n) ; ( print(n) ; ( ReadFile("test.txt", n) ; ( print(n) ; CloseRFile("test.txt") ) ) ) ) )
+
+    SymTable:
+
+    Out:
+
+    FileTable:
+
+    Heap:
+}
+
+{
+    ProgramID = 4
+    ExeStack:
+    ( int n ; ( ReadFile("test.txt", n) ; ( print(n) ; ( ReadFile("test.txt", n) ; ( print(n) ; CloseRFile("test.txt") ) ) ) ) )
+
+    SymTable:
+
+    Out:
+
+    FileTable:
+    "test.txt" -> java.io.BufferedReader@61e4705b
+
+    Heap:
+}
+
+{
+    ProgramID = 4
+    ExeStack:
+    ( int n ; ( ReadFile("test.txt", n) ; ( print(n) ; ( ReadFile("test.txt", n) ; ( print(n) ; CloseRFile("test.txt") ) ) ) ) )
+
+    SymTable:
+
+    Out:
+
+    FileTable:
+    "test.txt" -> java.io.BufferedReader@61e4705b
+
+    Heap:
+}
+
+{
+    ProgramID = 4
+    ExeStack:
+    int n
+    ( ReadFile("test.txt", n) ; ( print(n) ; ( ReadFile("test.txt", n) ; ( print(n) ; CloseRFile("test.txt") ) ) ) )
+
+    SymTable:
+
+    Out:
+
+    FileTable:
+    "test.txt" -> java.io.BufferedReader@61e4705b
+
+    Heap:
+}
+
+{
+    ProgramID = 4
+    ExeStack:
+    int n
+    ( ReadFile("test.txt", n) ; ( print(n) ; ( ReadFile("test.txt", n) ; ( print(n) ; CloseRFile("test.txt") ) ) ) )
+
+    SymTable:
+
+    Out:
+
+    FileTable:
+    "test.txt" -> java.io.BufferedReader@61e4705b
+
+    Heap:
+}
+
+{
+    ProgramID = 4
+    ExeStack:
+    ( ReadFile("test.txt", n) ; ( print(n) ; ( ReadFile("test.txt", n) ; ( print(n) ; CloseRFile("test.txt") ) ) ) )
+
+    SymTable:
+    n -> 0
+
+    Out:
+
+    FileTable:
+    "test.txt" -> java.io.BufferedReader@61e4705b
+
+    Heap:
+}
+
+{
+    ProgramID = 4
+    ExeStack:
+    ( ReadFile("test.txt", n) ; ( print(n) ; ( ReadFile("test.txt", n) ; ( print(n) ; CloseRFile("test.txt") ) ) ) )
+
+    SymTable:
+    n -> 0
+
+    Out:
+
+    FileTable:
+    "test.txt" -> java.io.BufferedReader@61e4705b
+
+    Heap:
+}
+
+{
+    ProgramID = 4
+    ExeStack:
+    ReadFile("test.txt", n)
+    ( print(n) ; ( ReadFile("test.txt", n) ; ( print(n) ; CloseRFile("test.txt") ) ) )
+
+    SymTable:
+    n -> 0
+
+    Out:
+
+    FileTable:
+    "test.txt" -> java.io.BufferedReader@61e4705b
+
+    Heap:
+}
+
+{
+    ProgramID = 4
+    ExeStack:
+    ReadFile("test.txt", n)
+    ( print(n) ; ( ReadFile("test.txt", n) ; ( print(n) ; CloseRFile("test.txt") ) ) )
+
+    SymTable:
+    n -> 0
+
+    Out:
+
+    FileTable:
+    "test.txt" -> java.io.BufferedReader@61e4705b
+
+    Heap:
+}
+
+{
+    ProgramID = 4
+    ExeStack:
+    ( print(n) ; ( ReadFile("test.txt", n) ; ( print(n) ; CloseRFile("test.txt") ) ) )
+
+    SymTable:
+    n -> 15
+
+    Out:
+
+    FileTable:
+    "test.txt" -> java.io.BufferedReader@61e4705b
+
+    Heap:
+}
+
+{
+    ProgramID = 4
+    ExeStack:
+    ( print(n) ; ( ReadFile("test.txt", n) ; ( print(n) ; CloseRFile("test.txt") ) ) )
+
+    SymTable:
+    n -> 15
+
+    Out:
+
+    FileTable:
+    "test.txt" -> java.io.BufferedReader@61e4705b
+
+    Heap:
+}
+
+{
+    ProgramID = 4
+    ExeStack:
+    print(n)
+    ( ReadFile("test.txt", n) ; ( print(n) ; CloseRFile("test.txt") ) )
+
+    SymTable:
+    n -> 15
+
+    Out:
+
+    FileTable:
+    "test.txt" -> java.io.BufferedReader@61e4705b
+
+    Heap:
+}
+
+{
+    ProgramID = 4
+    ExeStack:
+    print(n)
+    ( ReadFile("test.txt", n) ; ( print(n) ; CloseRFile("test.txt") ) )
+
+    SymTable:
+    n -> 15
+
+    Out:
+
+    FileTable:
+    "test.txt" -> java.io.BufferedReader@61e4705b
+
+    Heap:
+}
+
+{
+    ProgramID = 4
+    ExeStack:
+    ( ReadFile("test.txt", n) ; ( print(n) ; CloseRFile("test.txt") ) )
+
+    SymTable:
+    n -> 15
+
+    Out:
+    15
+
+    FileTable:
+    "test.txt" -> java.io.BufferedReader@61e4705b
+
+    Heap:
+}
+
+{
+    ProgramID = 4
+    ExeStack:
+    ( ReadFile("test.txt", n) ; ( print(n) ; CloseRFile("test.txt") ) )
+
+    SymTable:
+    n -> 15
+
+    Out:
+    15
+
+    FileTable:
+    "test.txt" -> java.io.BufferedReader@61e4705b
+
+    Heap:
+}
+
+{
+    ProgramID = 4
+    ExeStack:
+    ReadFile("test.txt", n)
+    ( print(n) ; CloseRFile("test.txt") )
+
+    SymTable:
+    n -> 15
+
+    Out:
+    15
+
+    FileTable:
+    "test.txt" -> java.io.BufferedReader@61e4705b
+
+    Heap:
+}
+
+{
+    ProgramID = 4
+    ExeStack:
+    ReadFile("test.txt", n)
+    ( print(n) ; CloseRFile("test.txt") )
+
+    SymTable:
+    n -> 15
+
+    Out:
+    15
+
+    FileTable:
+    "test.txt" -> java.io.BufferedReader@61e4705b
+
+    Heap:
+}
+
+{
+    ProgramID = 4
+    ExeStack:
+    ( print(n) ; CloseRFile("test.txt") )
+
+    SymTable:
+    n -> 10
+
+    Out:
+    15
+
+    FileTable:
+    "test.txt" -> java.io.BufferedReader@61e4705b
+
+    Heap:
+}
+
+{
+    ProgramID = 4
+    ExeStack:
+    ( print(n) ; CloseRFile("test.txt") )
+
+    SymTable:
+    n -> 10
+
+    Out:
+    15
+
+    FileTable:
+    "test.txt" -> java.io.BufferedReader@61e4705b
+
+    Heap:
+}
+
+{
+    ProgramID = 4
+    ExeStack:
+    print(n)
+    CloseRFile("test.txt")
+
+    SymTable:
+    n -> 10
+
+    Out:
+    15
+
+    FileTable:
+    "test.txt" -> java.io.BufferedReader@61e4705b
+
+    Heap:
+}
+
+{
+    ProgramID = 4
+    ExeStack:
+    print(n)
+    CloseRFile("test.txt")
+
+    SymTable:
+    n -> 10
+
+    Out:
+    15
+
+    FileTable:
+    "test.txt" -> java.io.BufferedReader@61e4705b
+
+    Heap:
+}
+
+{
+    ProgramID = 4
+    ExeStack:
+    CloseRFile("test.txt")
+
+    SymTable:
+    n -> 10
+
+    Out:
+    15
+    10
+
+    FileTable:
+    "test.txt" -> java.io.BufferedReader@61e4705b
+
+    Heap:
+}
+
+{
+    ProgramID = 4
+    ExeStack:
+    CloseRFile("test.txt")
+
+    SymTable:
+    n -> 10
+
+    Out:
+    15
+    10
+
+    FileTable:
+    "test.txt" -> java.io.BufferedReader@61e4705b
+
+    Heap:
+}
+
+{
+    ProgramID = 4
     ExeStack:
 
     SymTable:

@@ -1,6 +1,7 @@
 import controller.Controller;
 import model.ProgramState;
 import model.dictionary.Dictionary;
+import model.exceptions.ToyLangException;
 import model.expression.*;
 import model.heap.Heap;
 import model.heap.IHeap;
@@ -20,7 +21,7 @@ import view.TextMenu;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ToyLangException {
 
 
         /*
@@ -33,6 +34,8 @@ public class Main {
         IStatement ex1 = new CompStatement( new VarDeclStatement("v", new IntType()),
                 new CompStatement( new AssignStatement("v", new ValueExpression( new IntValue(2))),
                         new PrintStatement( new VariableExpression("v"))));
+
+        ex1.typecheck(new Dictionary<>());
 
         ProgramState state1 = new ProgramState(new Stack<>(), new Dictionary<>(), new List<>(50), new Dictionary<>(), heap1, ex1);
 
@@ -55,6 +58,8 @@ public class Main {
                         new CompStatement( new AssignStatement("a", new ArithmeticExpression( new ValueExpression( new IntValue(2)), new ArithmeticExpression( new ValueExpression(new IntValue(3)), new ValueExpression(new IntValue(0)), '/'), '+')),
                                 new CompStatement( new AssignStatement("b", new ArithmeticExpression(new VariableExpression("a"), new ValueExpression(new IntValue(1)), '+')), new PrintStatement(new VariableExpression("b"))))));
 
+        ex2.typecheck(new Dictionary<>());
+
         ProgramState state2 = new ProgramState(new Stack<>(), new Dictionary<>(), new List<>(50), new Dictionary<>(), heap2, ex2);
 
         IRepository repository2 = new Repository(50, "log2.txt");
@@ -74,6 +79,8 @@ public class Main {
                 new CompStatement( new VarDeclStatement("v", new IntType()),
                         new CompStatement( new AssignStatement("a", new ValueExpression(new BoolValue(true))),
                                 new CompStatement(new CondStatement(new VariableExpression("a"), new AssignStatement("v",new ValueExpression(new IntValue(2))), new AssignStatement("v", new ValueExpression(new IntValue(3)))), new PrintStatement(new VariableExpression("v"))))));
+
+        ex3.typecheck(new Dictionary<>());
 
         ProgramState state3 = new ProgramState(new Stack<>(), new Dictionary<>(), new List<>(50), new Dictionary<>(), heap3, ex3);
 
@@ -100,6 +107,8 @@ public class Main {
 
         IStatement ex4 = new CompStatement(open, new CompStatement(decl_n, new CompStatement(read,
                 new CompStatement(print, new CompStatement(read, new CompStatement(print, close))))));
+
+        ex4.typecheck(new Dictionary<>());
 
         ProgramState state4 = new ProgramState(new Stack<>(), new Dictionary<>(), new List<>(50), new Dictionary<>(), heap4, ex4);
 
@@ -128,6 +137,8 @@ public class Main {
 
         IStatement ex5 = new CompStatement(decl_a, new CompStatement(assign_a, new CompStatement(decl_b, new CompStatement(assign_b, cond))));
 
+        ex5.typecheck(new Dictionary<>());
+
         ProgramState state5 = new ProgramState(new Stack<>(), new Dictionary<>(), new List<>(50), new Dictionary<>(), heap5, ex5);
 
         IRepository repository5 = new Repository(50, "log5.txt");
@@ -152,6 +163,8 @@ public class Main {
         IStatement print2_v = new PrintStatement(new ArithmeticExpression(read_v, new ValueExpression(new IntValue(5)), '+'));
 
         IStatement ex6 = new CompStatement(decl_refv, new CompStatement(alloc1_v, new CompStatement(print1_v, new CompStatement(write_v, print2_v))));
+
+        ex6.typecheck(new Dictionary<>());
 
         ProgramState state6 = new ProgramState(new Stack<>(), new Dictionary<>(), new List<>(50), new Dictionary<>(), heap6, ex6);
 
@@ -179,6 +192,8 @@ public class Main {
 
         IStatement ex7 = new CompStatement(decl_v, new CompStatement(assign_v, new CompStatement(while1, print3_v)));
 
+        ex7.typecheck(new Dictionary<>());
+
         ProgramState state7 = new ProgramState(new Stack<>(), new Dictionary<>(), new List<>(50), new Dictionary<>(), heap7, ex7);
 
         IRepository repository7 = new Repository(50, "log7.txt");
@@ -202,6 +217,8 @@ public class Main {
 
         IStatement ex8 = new CompStatement(decl_refv, new CompStatement(alloc1_v,
                 new CompStatement(decl_refrefa, new CompStatement(alloc_a_v, new CompStatement(alloc2_v, new PrintStatement(read_refrefa))))));
+
+        ex8.typecheck(new Dictionary<>());
 
         ProgramState state8 = new ProgramState(new Stack<>(), new Dictionary<>(), new List<>(50), new Dictionary<>(), heap8, ex8);
 
@@ -236,7 +253,10 @@ public class Main {
                                         new CompStatement(fork1,
                                                 new CompStatement(print3_v, print_read_a))))));
 
+        ex9.typecheck(new Dictionary<>());
+        
         ProgramState state9 = new ProgramState(new Stack<>(), new Dictionary<>(), new List<>(50), new Dictionary<>(), heap9, ex9);
+
 
         IRepository repository9 = new Repository(50, "log9.txt");
 

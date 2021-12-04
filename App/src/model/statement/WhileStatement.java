@@ -45,6 +45,12 @@ public class WhileStatement implements IStatement {
     @Override
     public IDictionary<String, IType> typecheck(IDictionary<String, IType> typeEnv) throws ToyLangException {
 
+        if (exp.typecheck(typeEnv).equals(new BoolType())) {
+
+            stmt.typecheck(clone(typeEnv));
+            return typeEnv;
+        }
+        else throw new ToyLangException("Expression is not of BoolType.");
 
     }
 

@@ -5,6 +5,7 @@ import model.dictionary.IDictionary;
 import model.exceptions.ToyLangException;
 import model.expression.IExpression;
 import model.heap.IHeap;
+import model.type.IType;
 import model.type.RefType;
 import model.value.IValue;
 import model.value.RefValue;
@@ -53,6 +54,28 @@ public class WriteHeap implements IStatement {
         else throw new ToyLangException("No variable with the given name has been defined.");
 
         return null;
+    }
+
+    @Override
+    public IDictionary<String, IType> typecheck(IDictionary<String, IType> typeEnv) throws ToyLangException {
+
+        IType var_type = typeEnv.get(var_name);
+
+        if (var_type != null) {
+
+            if (var_type instanceof RefType ref) {
+
+                IType exp_type = exp.typecheck(typeEnv);
+
+                if (ref.getInner().equals(exp_type)) {
+
+                    return typeEnv;
+                }
+                else throw new ToyLangException("The expression does not evaluate to the inner type of " + var_name + " (expected " + ref.getInner() + ", got " + exp_type + ")");
+            }
+            else throw new ToyLangException("Variable is not of type RefType.");
+        }
+        else throw new ToyLangException("No variable with the given name has been defined.");
     }
 
     @Override

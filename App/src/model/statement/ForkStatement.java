@@ -28,7 +28,12 @@ public class ForkStatement implements IStatement {
 
     @Override
     public IDictionary<String, IType> typecheck(IDictionary<String, IType> typeEnv) throws ToyLangException {
-        return null;
+
+        IDictionary<String, IType> newEnv = clone_env(typeEnv);
+
+        statement.typecheck(newEnv);
+
+        return typeEnv;
     }
 
 

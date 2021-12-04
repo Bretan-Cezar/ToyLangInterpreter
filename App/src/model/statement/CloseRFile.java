@@ -1,8 +1,10 @@
 package model.statement;
 
 import model.ProgramState;
+import model.dictionary.IDictionary;
 import model.exceptions.ToyLangException;
 import model.expression.IExpression;
+import model.type.IType;
 import model.type.StringType;
 import model.value.IValue;
 import model.value.StringValue;
@@ -48,6 +50,18 @@ public class CloseRFile implements IStatement {
         else throw new ToyLangException("The expression is not of StringType.");
 
         return null;
+    }
+
+    @Override
+    public IDictionary<String, IType> typecheck(IDictionary<String, IType> typeEnv) throws ToyLangException {
+
+        IType t = exp.typecheck(typeEnv);
+
+        if (t.equals(new StringType())) {
+
+            return typeEnv;
+        }
+        else throw new ToyLangException("The expression is not of StringType.");
     }
 
     @Override
