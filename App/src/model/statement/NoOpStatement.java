@@ -18,6 +18,12 @@ public class NoOpStatement implements IStatement {
     }
 
     @Override
+    public String toString() {
+
+        return "nop";
+    }
+
+    @Override
     public IStatement deepCopy() {
 
         return new NoOpStatement();

@@ -26,7 +26,7 @@ public class Controller {
         sharedHeap = heap;
     }
 
-    private List<ProgramState> removeCompletedProgram(List<ProgramState> programsList) throws ToyLangException {
+    private List<ProgramState> removeCompletedProgram(List<ProgramState> programsList) {
 
         return programsList.stream()
                 .filter(ProgramState::isNotCompleted)
@@ -42,8 +42,7 @@ public class Controller {
                 .map(v -> {
                     RefValue v1 = (RefValue) v;
                     return v1.getAddr();
-                })
-                .collect(Collectors.toList())));
+                }).toList()));
 
 
         return masterList.stream().toList();

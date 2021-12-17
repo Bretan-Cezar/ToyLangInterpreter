@@ -254,15 +254,53 @@ public class Main {
                                                 new CompStatement(print3_v, print_read_a))))));
 
         ex9.typecheck(new Dictionary<>());
-        
-        ProgramState state9 = new ProgramState(new Stack<>(), new Dictionary<>(), new List<>(50), new Dictionary<>(), heap9, ex9);
 
+        ProgramState state9 = new ProgramState(new Stack<>(), new Dictionary<>(), new List<>(50), new Dictionary<>(), heap9, ex9);
 
         IRepository repository9 = new Repository(50, "log9.txt");
 
         repository9.addProgram(state9);
 
         Controller controller9 = new Controller(repository9, heap9);
+
+        /*
+         *  Example10:
+         *  Ref int a; new(a, 22); fork( print(rH(a)); wH(a,24); nop; print(rH(a)); wH(a,28) ); fork(nop; print(rH(a)); wH(a,26); nop; nop; print(rH(a)))
+         */
+
+        IHeap heap10 = new Heap();
+
+        IStatement nop = new NoOpStatement();
+        IStatement write2_a = new WriteHeap("a", new ValueExpression(new IntValue(24)));
+        IStatement write3_a = new WriteHeap("a", new ValueExpression(new IntValue(26)));
+        IStatement write4_a = new WriteHeap("a", new ValueExpression(new IntValue(28)));
+
+        IStatement fork2 = new ForkStatement(
+                new CompStatement(print_read_a,
+                    new CompStatement(write2_a,
+                        new CompStatement(nop,
+                                new CompStatement(print_read_a, write4_a)))));
+
+        IStatement fork3 = new ForkStatement(
+                new CompStatement(nop,
+                        new CompStatement(print_read_a,
+                                new CompStatement(write3_a,
+                                        new CompStatement(nop,
+                                                new CompStatement(nop, print_read_a))))));
+
+        IStatement ex10 = new CompStatement(decl_refa,
+                new CompStatement(alloc1_a,
+                        new CompStatement(fork2, fork3)));
+
+        ex10.typecheck(new Dictionary<>());
+
+        ProgramState state10 = new ProgramState(new Stack<>(), new Dictionary<>(), new List<>(50), new Dictionary<>(), heap10, ex10);
+
+        IRepository repository10 = new Repository(50, "log10.txt");
+
+        repository10.addProgram(state10);
+
+        Controller controller10 = new Controller(repository10, heap10);
 
         TextMenu menu = new TextMenu();
 
@@ -276,6 +314,7 @@ public class Main {
         menu.addCommand(new RunExample("7", ex7.toString(), controller7));
         menu.addCommand(new RunExample("8", ex8.toString(), controller8));
         menu.addCommand(new RunExample("9", ex9.toString(), controller9));
+        menu.addCommand(new RunExample("10", ex10.toString(), controller10));
 
         menu.start();
     }

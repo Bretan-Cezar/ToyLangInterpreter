@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" prefHeight="600.0" prefWidth="1300.0" spacing="20.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.toylanggui.MainController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+   <HBox prefHeight="560.0" prefWidth="1160.0">
+      <children>
+         <VBox maxHeight="1.7976931348623157E308" maxWidth="-Infinity" prefHeight="560.0" prefWidth="240.0">
+            <children>
+               <Label alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="35.0" prefWidth="230.0" text="Heap:" textAlignment="CENTER">
+                  <font>
+                     <Font size="24.0" />
+                  </font>
+                  <VBox.margin>
+                     <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
+                  </VBox.margin>
+               </Label>
+               <TableView fx:id="heapTableView" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="495.0" prefWidth="230.0">
+                 <columns>
+                   <TableColumn fx:id="addressColumn" prefWidth="69.0" text="Address" />
+                   <TableColumn fx:id="heapvalueColumn" prefWidth="159.0" text="Value" />
+                 </columns>
+                  <VBox.margin>
+                     <Insets bottom="10.0" left="5.0" right="5.0" top="5.0" />
+                  </VBox.margin>
+               </TableView>
+            </children>
+            <HBox.margin>
+               <Insets right="5.0" />
+            </HBox.margin>
+         </VBox>
+         <VBox maxHeight="1.7976931348623157E308" maxWidth="-Infinity" prefHeight="400.0" prefWidth="240.0">
+            <children>
+               <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" prefHeight="35.0" prefWidth="230.0" text="Out:" textAlignment="CENTER">
+                  <font>
+                     <Font size="24.0" />
+                  </font>
+                  <VBox.margin>
+                     <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
+                  </VBox.margin>
+               </Label>
+               <ListView fx:id="outListView" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="240.0" prefWidth="230.0">
+                  <VBox.margin>
+                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                  </VBox.margin>
+               </ListView>
+               <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" prefHeight="35.0" prefWidth="230.0" text="FileTable:" textAlignment="CENTER">
+                  <font>
+                     <Font size="24.0" />
+                  </font>
+                  <VBox.margin>
+                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                  </VBox.margin>
+               </Label>
+               <ListView fx:id="filesListView" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="230.0">
+                  <VBox.margin>
+                     <Insets bottom="10.0" left="5.0" right="5.0" top="5.0" />
+                  </VBox.margin>
+               </ListView>
+            </children>
+            <HBox.margin>
+               <Insets left="5.0" right="5.0" />
+            </HBox.margin>
+         </VBox>
+         <VBox maxHeight="1.7976931348623157E308" maxWidth="-Infinity" prefHeight="560.0" prefWidth="240.0">
+            <children>
+               <TextField fx:id="countTextField" editable="false" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" prefHeight="35.0" prefWidth="230.0" promptText="No. of Program States">
+                  <VBox.margin>
+                     <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
+                  </VBox.margin>
+               </TextField>
+               <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" prefHeight="35.0" prefWidth="230.0" text="ProgramStates:" textAlignment="CENTER">
+                  <font>
+                     <Font size="24.0" />
+                  </font>
+                  <VBox.margin>
+                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                  </VBox.margin>
+               </Label>
+               <ListView fx:id="statesListView" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="395.0" prefWidth="230.0">
+                  <VBox.margin>
+                     <Insets bottom="10.0" left="5.0" right="5.0" top="5.0" />
+                  </VBox.margin>
+               </ListView>
+               <Button fx:id="runBtn" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="40.0" prefWidth="230.0" text="Run One Step">
+                  <VBox.margin>
+                     <Insets bottom="10.0" left="5.0" right="5.0" top="5.0" />
+                  </VBox.margin>
+               </Button>
+            </children>
+            <HBox.margin>
+               <Insets left="5.0" right="5.0" />
+            </HBox.margin>
+         </VBox>
+         <VBox maxWidth="1.7976931348623157E308" prefHeight="560.0" prefWidth="510.0">
+            <HBox.margin>
+               <Insets left="5.0" />
+            </HBox.margin>
+            <children>
+               <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" prefHeight="35.0" prefWidth="500.0" text="SymTable:" textAlignment="CENTER">
+                  <font>
+                     <Font size="24.0" />
+                  </font>
+                  <VBox.margin>
+                     <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
+                  </VBox.margin>
+               </Label>
+               <TableView fx:id="symTableView" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="240.0" prefWidth="500.0">
+                 <columns>
+                   <TableColumn fx:id="nameColumn" prefWidth="174.0" text="Variable Name" />
+                   <TableColumn fx:id="symvalueColumn" prefWidth="325.0" text="Value" />
+                 </columns>
+                  <VBox.margin>
+                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                  </VBox.margin>
+               </TableView>
+               <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" prefHeight="35.0" prefWidth="500.0" text="ExeStack:" textAlignment="CENTER">
+                  <font>
+                     <Font size="24.0" />
+                  </font>
+                  <VBox.margin>
+                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                  </VBox.margin>
+               </Label>
+               <ListView fx:id="stackListView" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="500.0">
+                  <VBox.margin>
+                     <Insets bottom="10.0" left="5.0" right="5.0" top="5.0" />
+                  </VBox.margin>
+               </ListView>
+            </children>
+         </VBox>
+      </children>
+   </HBox>
+</VBox>
