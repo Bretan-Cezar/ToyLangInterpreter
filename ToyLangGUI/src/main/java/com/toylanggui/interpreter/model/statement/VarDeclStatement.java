@@ -20,23 +20,23 @@ public class VarDeclStatement implements IStatement {
     @Override
     public ProgramState execute(ProgramState state) throws ToyLangException {
 
-        if (!state.getSymTable().isKeyDefined(name)) {
+        if (!state.getSymTableStack().getContent().getFirst().isKeyDefined(name)) {
 
             if (type.equals(new BoolType())) {
 
-                state.getSymTable().modify(name, (new BoolType()).defaultValue());
+                state.getSymTableStack().getContent().getFirst().modify(name, (new BoolType()).defaultValue());
             }
             else if (type.equals(new IntType())) {
 
-                state.getSymTable().modify(name, (new IntType()).defaultValue());
+                state.getSymTableStack().getContent().getFirst().modify(name, (new IntType()).defaultValue());
             }
             else if (type.equals(new StringType())) {
 
-                state.getSymTable().modify(name, (new StringType()).defaultValue());
+                state.getSymTableStack().getContent().getFirst().modify(name, (new StringType()).defaultValue());
             }
             else if (type instanceof RefType refType) {
 
-                state.getSymTable().modify(name, (new RefType(refType.getInner()).defaultValue()));
+                state.getSymTableStack().getContent().getFirst().modify(name, (new RefType(refType.getInner()).defaultValue()));
             }
 
         }

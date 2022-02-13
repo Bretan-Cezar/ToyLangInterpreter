@@ -26,7 +26,7 @@ public class WriteHeap implements IStatement {
     @Override
     public ProgramState execute(ProgramState state) throws ToyLangException {
 
-        IDictionary<String, IValue> table = state.getSymTable();
+        IDictionary<String, IValue> table = state.getSymTableStack().getContent().getFirst();
 
         if (table.isKeyDefined(var_name)) {
 

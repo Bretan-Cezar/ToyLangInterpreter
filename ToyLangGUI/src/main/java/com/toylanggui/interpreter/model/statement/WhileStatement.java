@@ -26,7 +26,7 @@ public class WhileStatement implements IStatement {
     @Override
     public ProgramState execute(ProgramState state) throws ToyLangException {
 
-        IValue v = exp.evaluate(state.getSymTable(), state.getHeap());
+        IValue v = exp.evaluate(state.getSymTableStack().getContent().getFirst(), state.getHeap());
 
         if (Objects.equals(v.getType(), new BoolType())) {
 

@@ -26,10 +26,10 @@ public class Alloc implements IStatement {
     @Override
     public ProgramState execute(ProgramState state) throws ToyLangException {
 
-        if (state.getSymTable().isKeyDefined(var_name)) {
+        if (state.getSymTableStack().getContent().getFirst().isKeyDefined(var_name)) {
 
-            IType var_type = state.getSymTable().get(var_name).getType();
-            IValue val = exp.evaluate(state.getSymTable(), state.getHeap());
+            IType var_type = state.getSymTableStack().getContent().getFirst().get(var_name).getType();
+            IValue val = exp.evaluate(state.getSymTableStack().getContent().getFirst(), state.getHeap());
 
             System.out.println(val);
 
@@ -41,7 +41,7 @@ public class Alloc implements IStatement {
 
                     Integer addr = state.getHeap().createEntry(val);
 
-                    state.getSymTable().modify(var_name, new RefValue(addr, inner));
+                    state.getSymTableStack().getContent().getFirst().modify(var_name, new RefValue(addr, inner));
                 }
                 else throw new ToyLangException("Mismatch in inner variable type (" + var_type + ") and expression (" + val.getType().toString() + ") types.");
             }

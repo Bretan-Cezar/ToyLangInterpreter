@@ -24,7 +24,7 @@ public class PrintStatement implements IStatement {
     @Override
     public ProgramState execute(ProgramState state) throws ToyLangException {
 
-        IValue value = exp.evaluate(state.getSymTable(), state.getHeap());
+        IValue value = exp.evaluate(state.getSymTableStack().getContent().getFirst(), state.getHeap());
 
         System.out.println(value);
         state.getOut().append(value);

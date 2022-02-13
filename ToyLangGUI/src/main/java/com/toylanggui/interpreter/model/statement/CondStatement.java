@@ -33,7 +33,7 @@ public class CondStatement implements IStatement {
     @Override
     public ProgramState execute(ProgramState state) throws ToyLangException {
 
-        IValue eval = exp.evaluate(state.getSymTable(), state.getHeap());
+        IValue eval = exp.evaluate(state.getSymTableStack().getContent().getFirst(), state.getHeap());
 
         if (eval.getType().equals(new BoolType())) {
 

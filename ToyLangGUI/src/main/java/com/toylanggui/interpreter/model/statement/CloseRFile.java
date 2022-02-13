@@ -25,7 +25,7 @@ public class CloseRFile implements IStatement {
     @Override
     public ProgramState execute(ProgramState state) throws ToyLangException {
 
-        IValue v = exp.evaluate(state.getSymTable(), state.getHeap());
+        IValue v = exp.evaluate(state.getSymTableStack().getContent().getFirst(), state.getHeap());
 
         if (v.getType().equals(new StringType())) {
 

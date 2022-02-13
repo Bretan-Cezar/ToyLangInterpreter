@@ -4,6 +4,7 @@ import com.toylanggui.interpreter.model.dictionary.IDictionary;
 import com.toylanggui.interpreter.model.exceptions.ToyLangException;
 import com.toylanggui.interpreter.model.heap.IHeap;
 import com.toylanggui.interpreter.model.list.IList;
+import com.toylanggui.interpreter.model.proc_table.IProcTable;
 import com.toylanggui.interpreter.model.stack.IStack;
 import com.toylanggui.interpreter.model.statement.IStatement;
 import com.toylanggui.interpreter.model.value.IValue;
@@ -14,12 +15,15 @@ import java.io.BufferedReader;
 
 public class ProgramState {
 
+
     private IStack<IStatement> exeStack;
-    private IDictionary<String, IValue> symTable;
+    private IStack<IDictionary<String, IValue>> symTableStack;
     private IList<IValue> out;
     private IStatement originalProgram;
     private IDictionary<StringValue, BufferedReader> fileTable;
     private IHeap heap;
+    private IProcTable procTable;
+
     private int programID;
     private static int global_max_id = 0;
 
@@ -27,8 +31,8 @@ public class ProgramState {
         return exeStack;
     }
 
-    public IDictionary<String, IValue> getSymTable() {
-        return symTable;
+    public IStack<IDictionary<String, IValue>> getSymTableStack() {
+        return symTableStack;
     }
 
     public IList<IValue> getOut() {
@@ -47,6 +51,10 @@ public class ProgramState {
         return heap;
     }
 
+    public IProcTable getProcTable() {
+        return procTable;
+    }
+
     public int getProgramID() {
         return programID;
     }
@@ -57,14 +65,16 @@ public class ProgramState {
         return global_max_id;
     }
 
-    public ProgramState(IStack<IStatement> stack, IDictionary<String, IValue> s_table, IList<IValue> list, IDictionary<StringValue, BufferedReader> f_table, IHeap hp, IStatement program) {
+    public ProgramState(IStack<IStatement> stack, IStack<IDictionary<String, IValue>> s_table_stack, IList<IValue> list, IDictionary<StringValue, BufferedReader> f_table, IHeap hp, IProcTable pt, IStatement program) {
 
         programID = getNewID();
         exeStack = stack;
-        symTable = s_table;
+        symTableStack = s_table_stack;
         out = list;
         fileTable = f_table;
         heap = hp;
+        procTable = pt;
+
         originalProgram = program.deepCopy();
         exeStack.push(program);
     }
@@ -75,7 +85,8 @@ public class ProgramState {
     public String toString() {
 
         return "ProgramState {\nProgramID = " + programID + "\nStack: " + exeStack.toString() + "\nTable: " +
-                symTable.toString() + "\nOut: "+ out.toString() + "\nFileTable: " + fileTable.toString() + "\nHeap: " + heap.toString() + "\n}";
+                symTableStack.getContent().getFirst().toString() + "\nOut: "+ out.toString() + "\nFileTable: " + fileTable.toString() +
+                "\nHeap: " + heap.toString() + "\nProcTable: " + procTable.toString() + "\n}";
     }
 
     public String toLogString() {
@@ -90,7 +101,7 @@ public class ProgramState {
 
         str.append("\n    SymTable:\n");
 
-        str.append(symTable.toLogString());
+        str.append(symTableStack.getContent().getFirst().toLogString());
 
         str.append("\n    Out:\n");
 
@@ -103,6 +114,10 @@ public class ProgramState {
         str.append("\n    Heap:\n");
 
         str.append(heap.toLogString());
+
+        str.append("\n    ProcTable:\n");
+
+        str.append(procTable.toLogString());
 
         str.append("}\n");
 

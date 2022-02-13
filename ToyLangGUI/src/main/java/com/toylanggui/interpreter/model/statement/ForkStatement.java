@@ -5,6 +5,7 @@ import com.toylanggui.interpreter.model.ProgramState;
 import com.toylanggui.interpreter.model.dictionary.Dictionary;
 import com.toylanggui.interpreter.model.dictionary.IDictionary;
 import com.toylanggui.interpreter.model.exceptions.ToyLangException;
+import com.toylanggui.interpreter.model.stack.IStack;
 import com.toylanggui.interpreter.model.stack.Stack;
 import com.toylanggui.interpreter.model.type.IType;
 import com.toylanggui.interpreter.model.value.IValue;
@@ -21,9 +22,9 @@ public class ForkStatement implements IStatement {
     @Override
     public ProgramState execute(ProgramState state) throws ToyLangException {
 
-        IDictionary<String, IValue> newSymTable = clone(state.getSymTable());
+        IStack<IDictionary<String, IValue>> newSymTableStack = clone_stack(state.getSymTableStack());
 
-        return new ProgramState(new Stack<>(), newSymTable, state.getOut(), state.getFileTable(), state.getHeap(), statement);
+        return new ProgramState(new Stack<>(), newSymTableStack, state.getOut(), state.getFileTable(), state.getHeap(), state.getProcTable(), statement);
     }
 
     @Override
@@ -36,8 +37,16 @@ public class ForkStatement implements IStatement {
         return typeEnv;
     }
 
+    private IStack<IDictionary<String, IValue>> clone_stack(IStack<IDictionary<String, IValue>> symTableStack) {
 
-    private IDictionary<String, IValue> clone(IDictionary<String, IValue> symTable) {
+        IStack<IDictionary<String, IValue>> newStack = new Stack<>();
+
+        symTableStack.getContent().forEach((dict) -> newStack.push(clone_dict(dict)));
+
+        return newStack;
+    }
+
+    private IDictionary<String, IValue> clone_dict(IDictionary<String, IValue> symTable) {
 
         IDictionary<String, IValue> newDictionary = new Dictionary<>();
 

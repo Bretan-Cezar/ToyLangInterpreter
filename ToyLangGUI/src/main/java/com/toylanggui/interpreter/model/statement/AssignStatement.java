@@ -30,7 +30,7 @@ public class AssignStatement implements IStatement {
     @Override
     public ProgramState execute(ProgramState state) throws ToyLangException {
 
-        IDictionary<String, IValue> table = state.getSymTable();
+        IDictionary<String, IValue> table = state.getSymTableStack().getContent().getFirst();
         IHeap heap = state.getHeap();
 
         if (table.isKeyDefined(id)) {

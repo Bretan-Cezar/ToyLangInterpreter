@@ -29,15 +29,15 @@ public class ReadFile implements IStatement {
     @Override
     public ProgramState execute(ProgramState state) throws ToyLangException {
 
-        IValue v = exp.evaluate(state.getSymTable(), state.getHeap());
+        IValue v = exp.evaluate(state.getSymTableStack().getContent().getFirst(), state.getHeap());
 
         if (v.getType().equals(new StringType())) {
 
             StringValue s = (StringValue) v;
 
-            if (state.getSymTable().isKeyDefined(var)) {
+            if (state.getSymTableStack().getContent().getFirst().isKeyDefined(var)) {
 
-                if (state.getSymTable().get(var).getType().equals(new IntType())) {
+                if (state.getSymTableStack().getContent().getFirst().get(var).getType().equals(new IntType())) {
 
                     if (state.getFileTable().isKeyDefined(s)) {
 
@@ -64,9 +64,9 @@ public class ReadFile implements IStatement {
                                 throw new ToyLangException("Cannot read value because a non-int value has been read or EOF has been reached.");
                             }
 
-                            state.getSymTable().modify(var, v2);
+                            state.getSymTableStack().getContent().getFirst().modify(var, v2);
                         }
-                        else state.getSymTable().modify(var, new IntValue(0));
+                        else state.getSymTableStack().getContent().getFirst().modify(var, new IntValue(0));
                     }
                     else throw new ToyLangException("The given filename is not opened.");
                 }

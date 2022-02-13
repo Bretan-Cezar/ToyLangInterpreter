@@ -14,9 +14,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldListCell;
 import javafx.scene.control.cell.TextFieldTableCell;
-import javafx.stage.PopupWindow;
 import javafx.stage.Stage;
-import javafx.stage.Window;
 import javafx.util.StringConverter;
 
 import java.io.IOException;
@@ -32,6 +30,13 @@ public class MainController {
     private TableColumn<HeapEntry, String> addressColumn;
     @FXML
     private TableColumn<HeapEntry, String> heapvalueColumn;
+
+    @FXML
+    private TableView<ProcTableEntry> procTableView;
+    @FXML
+    private TableColumn<ProcTableEntry, String> funcNameColumn;
+    @FXML
+    private TableColumn<ProcTableEntry, String> funcValueColumn;
 
     @FXML
     private ListView<IValue> outListView;
@@ -66,6 +71,10 @@ public class MainController {
         heapvalueColumn = new TableColumn<>();
         heapTableView = new TableView<>();
 
+        funcNameColumn = new TableColumn<>();
+        funcValueColumn = new TableColumn<>();
+        procTableView = new TableView<>();
+
         outListView = new ListView<>();
         filesListView = new ListView<>();
 
@@ -83,11 +92,13 @@ public class MainController {
     @FXML
     public void initialize() {
 
-        addressColumn.setCellFactory(TextFieldTableCell.forTableColumn());
         addressColumn.setCellValueFactory(new PropertyValueFactory<HeapEntry, String>("address"));
 
-        heapvalueColumn.setCellFactory(TextFieldTableCell.forTableColumn());
         heapvalueColumn.setCellValueFactory(new PropertyValueFactory<HeapEntry, String>("value"));
+
+        funcNameColumn.setCellValueFactory(new PropertyValueFactory<ProcTableEntry, String>("name"));
+
+        funcValueColumn.setCellValueFactory(new PropertyValueFactory<ProcTableEntry, String>("value"));
 
         outListView.setCellFactory(TextFieldListCell.forListView(new StringConverter<>() {
             @Override
@@ -162,11 +173,13 @@ public class MainController {
         statesListView.getSelectionModel().clearSelection();
 
         ObservableList<HeapEntry> heapData = heapTableView.getItems();
+        ObservableList<ProcTableEntry> procTableData = procTableView.getItems();
         ObservableList<IValue> outData = outListView.getItems();
         ObservableList<StringValue> fileData = filesListView.getItems();
         ObservableList<ProgramState> stateIDs = statesListView.getItems();
 
         heapData.clear();
+        procTableData.clear();
         outData.clear();
         fileData.clear();
         stateIDs.clear();
@@ -174,6 +187,7 @@ public class MainController {
         stackListView.getItems().clear();
 
         ex.getController().getSharedHeap().getContent().forEach((addr, val) -> heapData.add(new HeapEntry(addr, val)));
+        ex.getController().getSharedProcTable().getContent().forEach((name, value) -> procTableData.add(new ProcTableEntry(name, value)));
         ex.getController().getSharedOut().getContent().forEach((value) -> outData.add(value));
         ex.getController().getSharedFileTable().getContent().forEach((val, reader) -> fileData.add(val));
 
@@ -191,7 +205,7 @@ public class MainController {
         symtableData.clear();
         stackData.clear();
 
-        state.getSymTable().getContent().forEach((name, val) -> symtableData.add(new SymTableEntry(name, val)));
+        state.getSymTableStack().getContent().getFirst().getContent().forEach((name, val) -> symtableData.add(new SymTableEntry(name, val)));
         state.getExeStack().getContent().forEach(stmt -> stackData.add(stmt));
     }
 
@@ -203,7 +217,7 @@ public class MainController {
         }
         catch (ToyLangException e) {
 
-            // showExceptionWindow(e.getMessage());
+            showExceptionWindow(e.getMessage());
         }
 
         showSelectedExample(ex);

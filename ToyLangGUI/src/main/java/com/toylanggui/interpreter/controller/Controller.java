@@ -1,12 +1,11 @@
 package com.toylanggui.interpreter.controller;
 
-
-
 import com.toylanggui.interpreter.model.ProgramState;
 import com.toylanggui.interpreter.model.dictionary.IDictionary;
 import com.toylanggui.interpreter.model.exceptions.ToyLangException;
 import com.toylanggui.interpreter.model.heap.IHeap;
 import com.toylanggui.interpreter.model.list.IList;
+import com.toylanggui.interpreter.model.proc_table.IProcTable;
 import com.toylanggui.interpreter.model.value.IValue;
 import com.toylanggui.interpreter.model.value.RefValue;
 import com.toylanggui.interpreter.model.value.StringValue;
@@ -27,14 +26,16 @@ public class Controller {
     private IList<IValue> sharedOut;
     private IDictionary<StringValue, BufferedReader> sharedFileTable;
     private IHeap sharedHeap;
+    private IProcTable sharedProcTable;
     private ExecutorService executor;
 
-    public Controller(IRepository r, IList<IValue> o, IDictionary<StringValue, BufferedReader> ft, IHeap heap) {
+    public Controller(IRepository r, IList<IValue> o, IDictionary<StringValue, BufferedReader> ft, IHeap heap, IProcTable pt) {
 
         repo = r;
         sharedOut = o;
         sharedFileTable = ft;
         sharedHeap = heap;
+        sharedProcTable = pt;
     }
 
     public IList<IValue> getSharedOut() {
@@ -47,6 +48,10 @@ public class Controller {
 
     public IHeap getSharedHeap() {
         return sharedHeap;
+    }
+
+    public IProcTable getSharedProcTable() {
+        return sharedProcTable;
     }
 
     private List<ProgramState> removeCompletedProgram(List<ProgramState> programsList) {
@@ -95,7 +100,7 @@ public class Controller {
 
                 getAddrFromAllSymTables(
                         programsList.stream()
-                                .map(prg -> prg.getSymTable().getContent().values())
+                                .map(prg -> prg.getSymTableStack().getContent().getFirst().getContent().values())
                                 .collect(Collectors.toList())),
 
                 getAddrFromHeap(sharedHeap.getContent().values()),
@@ -124,7 +129,7 @@ public class Controller {
 
         try {
 
-            // AtomicReference<Throwable> exception = new AtomicReference<>();
+            AtomicReference<Throwable> exception = new AtomicReference<>();
 
             newProgramList = executor.invokeAll(callList).stream()
                     .map(future -> {
@@ -133,7 +138,7 @@ public class Controller {
 
                         } catch (InterruptedException | ExecutionException e) {
 
-                            // exception.set(e.getCause());
+                            exception.set(e.getCause());
                             System.out.println(e.getCause().getMessage());
                         }
                         return null;
@@ -141,8 +146,8 @@ public class Controller {
                     .filter(Objects::nonNull)
                     .collect(Collectors.toList());
 
-            // if (exception.get() instanceof ToyLangException tle)
-            //     throw tle;
+            if (exception.get() instanceof ToyLangException tle)
+                throw tle;
 
         }
         catch (InterruptedException e) {
@@ -173,29 +178,14 @@ public class Controller {
 
         while (programsList.size() > 0) {
 
-            /*
-            sharedHeap.setContent(conservativeGarbageCollector(
-
-                    getAddrFromAllSymTables(
-                            programsList.stream()
-                                    .map(prg -> prg.getSymTable().getContent().values())
-                                    .collect(Collectors.toList())),
-
-                    getAddrFromHeap(sharedHeap.getContent().values()),
-                    sharedHeap.getContent()));
-            */
-
             oneStepForAllPrograms();
             programsList = removeCompletedProgram(repo.getProgramList().getContent());
         }
 
         executor.shutdownNow();
-        // repo.setProgramList(programsList);
     }
 
     public IRepository getRepo() {
         return repo;
     }
-
-
 }

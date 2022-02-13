@@ -66,7 +66,7 @@ public class Heap implements IHeap {
         for (HashMap.Entry<Integer, IValue> entry : map.entrySet()) {
 
             str.append(entry.getKey().toString());
-            str.append(" = ");
+            str.append(" -> ");
             str.append(entry.getValue().toString());
             str.append(" ; ");
         }
