@@ -1,0 +1,318 @@
+
+{
+    ProgramID = 11
+    ExeStack:
+    ( ( int v ; v = 2 ) ; ( ( int w ; w = 5 ) ; ( call sum[v * 10, w] ; ( print(v) ; fork( ( call product[v, w] ; fork( call sum[v, w] ) ) ) ) ) ) )
+
+    SymTable:
+
+    Out:
+
+    FileTable:
+
+    Heap:
+
+    ProcTable:
+    product -> [a, b]=( v = a * b ; print(v) )
+    sum -> [a, b]=( v = a + b ; print(v) )
+}
+
+{
+    ProgramID = 11
+    ExeStack:
+    ( int v ; v = 2 )
+    ( ( int w ; w = 5 ) ; ( call sum[v * 10, w] ; ( print(v) ; fork( ( call product[v, w] ; fork( call sum[v, w] ) ) ) ) ) )
+
+    SymTable:
+
+    Out:
+
+    FileTable:
+
+    Heap:
+
+    ProcTable:
+    product -> [a, b]=( v = a * b ; print(v) )
+    sum -> [a, b]=( v = a + b ; print(v) )
+}
+
+{
+    ProgramID = 11
+    ExeStack:
+    ( int v ; v = 2 )
+    ( ( int w ; w = 5 ) ; ( call sum[v * 10, w] ; ( print(v) ; fork( ( call product[v, w] ; fork( call sum[v, w] ) ) ) ) ) )
+
+    SymTable:
+
+    Out:
+
+    FileTable:
+
+    Heap:
+
+    ProcTable:
+    product -> [a, b]=( v = a * b ; print(v) )
+    sum -> [a, b]=( v = a + b ; print(v) )
+}
+
+{
+    ProgramID = 11
+    ExeStack:
+    int v
+    v = 2
+    ( ( int w ; w = 5 ) ; ( call sum[v * 10, w] ; ( print(v) ; fork( ( call product[v, w] ; fork( call sum[v, w] ) ) ) ) ) )
+
+    SymTable:
+
+    Out:
+
+    FileTable:
+
+    Heap:
+
+    ProcTable:
+    product -> [a, b]=( v = a * b ; print(v) )
+    sum -> [a, b]=( v = a + b ; print(v) )
+}
+
+{
+    ProgramID = 11
+    ExeStack:
+    int v
+    v = 2
+    ( ( int w ; w = 5 ) ; ( call sum[v * 10, w] ; ( print(v) ; fork( ( call product[v, w] ; fork( call sum[v, w] ) ) ) ) ) )
+
+    SymTable:
+
+    Out:
+
+    FileTable:
+
+    Heap:
+
+    ProcTable:
+    product -> [a, b]=( v = a * b ; print(v) )
+    sum -> [a, b]=( v = a + b ; print(v) )
+}
+
+{
+    ProgramID = 11
+    ExeStack:
+    v = 2
+    ( ( int w ; w = 5 ) ; ( call sum[v * 10, w] ; ( print(v) ; fork( ( call product[v, w] ; fork( call sum[v, w] ) ) ) ) ) )
+
+    SymTable:
+    v -> 0
+
+    Out:
+
+    FileTable:
+
+    Heap:
+
+    ProcTable:
+    product -> [a, b]=( v = a * b ; print(v) )
+    sum -> [a, b]=( v = a + b ; print(v) )
+}
+
+{
+    ProgramID = 11
+    ExeStack:
+    v = 2
+    ( ( int w ; w = 5 ) ; ( call sum[v * 10, w] ; ( print(v) ; fork( ( call product[v, w] ; fork( call sum[v, w] ) ) ) ) ) )
+
+    SymTable:
+    v -> 0
+
+    Out:
+
+    FileTable:
+
+    Heap:
+
+    ProcTable:
+    product -> [a, b]=( v = a * b ; print(v) )
+    sum -> [a, b]=( v = a + b ; print(v) )
+}
+
+{
+    ProgramID = 11
+    ExeStack:
+    ( ( int w ; w = 5 ) ; ( call sum[v * 10, w] ; ( print(v) ; fork( ( call product[v, w] ; fork( call sum[v, w] ) ) ) ) ) )
+
+    SymTable:
+    v -> 2
+
+    Out:
+
+    FileTable:
+
+    Heap:
+
+    ProcTable:
+    product -> [a, b]=( v = a * b ; print(v) )
+    sum -> [a, b]=( v = a + b ; print(v) )
+}
+
+{
+    ProgramID = 11
+    ExeStack:
+    ( ( int w ; w = 5 ) ; ( call sum[v * 10, w] ; ( print(v) ; fork( ( call product[v, w] ; fork( call sum[v, w] ) ) ) ) ) )
+
+    SymTable:
+    v -> 2
+
+    Out:
+
+    FileTable:
+
+    Heap:
+
+    ProcTable:
+    product -> [a, b]=( v = a * b ; print(v) )
+    sum -> [a, b]=( v = a + b ; print(v) )
+}
+
+{
+    ProgramID = 11
+    ExeStack:
+    ( int w ; w = 5 )
+    ( call sum[v * 10, w] ; ( print(v) ; fork( ( call product[v, w] ; fork( call sum[v, w] ) ) ) ) )
+
+    SymTable:
+    v -> 2
+
+    Out:
+
+    FileTable:
+
+    Heap:
+
+    ProcTable:
+    product -> [a, b]=( v = a * b ; print(v) )
+    sum -> [a, b]=( v = a + b ; print(v) )
+}
+
+{
+    ProgramID = 11
+    ExeStack:
+    ( int w ; w = 5 )
+    ( call sum[v * 10, w] ; ( print(v) ; fork( ( call product[v, w] ; fork( call sum[v, w] ) ) ) ) )
+
+    SymTable:
+    v -> 2
+
+    Out:
+
+    FileTable:
+
+    Heap:
+
+    ProcTable:
+    product -> [a, b]=( v = a * b ; print(v) )
+    sum -> [a, b]=( v = a + b ; print(v) )
+}
+
+{
+    ProgramID = 11
+    ExeStack:
+    int w
+    w = 5
+    ( call sum[v * 10, w] ; ( print(v) ; fork( ( call product[v, w] ; fork( call sum[v, w] ) ) ) ) )
+
+    SymTable:
+    v -> 2
+
+    Out:
+
+    FileTable:
+
+    Heap:
+
+    ProcTable:
+    product -> [a, b]=( v = a * b ; print(v) )
+    sum -> [a, b]=( v = a + b ; print(v) )
+}
+
+{
+    ProgramID = 11
+    ExeStack:
+    int w
+    w = 5
+    ( call sum[v * 10, w] ; ( print(v) ; fork( ( call product[v, w] ; fork( call sum[v, w] ) ) ) ) )
+
+    SymTable:
+    v -> 2
+
+    Out:
+
+    FileTable:
+
+    Heap:
+
+    ProcTable:
+    product -> [a, b]=( v = a * b ; print(v) )
+    sum -> [a, b]=( v = a + b ; print(v) )
+}
+
+{
+    ProgramID = 11
+    ExeStack:
+    w = 5
+    ( call sum[v * 10, w] ; ( print(v) ; fork( ( call product[v, w] ; fork( call sum[v, w] ) ) ) ) )
+
+    SymTable:
+    v -> 2
+    w -> 0
+
+    Out:
+
+    FileTable:
+
+    Heap:
+
+    ProcTable:
+    product -> [a, b]=( v = a * b ; print(v) )
+    sum -> [a, b]=( v = a + b ; print(v) )
+}
+
+{
+    ProgramID = 11
+    ExeStack:
+    w = 5
+    ( call sum[v * 10, w] ; ( print(v) ; fork( ( call product[v, w] ; fork( call sum[v, w] ) ) ) ) )
+
+    SymTable:
+    v -> 2
+    w -> 0
+
+    Out:
+
+    FileTable:
+
+    Heap:
+
+    ProcTable:
+    product -> [a, b]=( v = a * b ; print(v) )
+    sum -> [a, b]=( v = a + b ; print(v) )
+}
+
+{
+    ProgramID = 11
+    ExeStack:
+    ( call sum[v * 10, w] ; ( print(v) ; fork( ( call product[v, w] ; fork( call sum[v, w] ) ) ) ) )
+
+    SymTable:
+    v -> 2
+    w -> 5
+
+    Out:
+
+    FileTable:
+
+    Heap:
+
+    ProcTable:
+    product -> [a, b]=( v = a * b ; print(v) )
+    sum -> [a, b]=( v = a + b ; print(v) )
+}
